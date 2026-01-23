@@ -7,13 +7,6 @@ public class Director extends Person {
         this.numberOfShow = numberOfShow;
     }
 
-    @Override
-    public String toString() {
-        return "Director{" + "name='" + getName()
-                + '\'' + ", surname='" +
-                getSurname() + "}";
-    }
-
     public int getNumberOfShow() {
         return numberOfShow;
     }

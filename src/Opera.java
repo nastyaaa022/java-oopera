@@ -1,5 +1,5 @@
 public class Opera extends MusicalShow {
-    int choirSize;
+   private int choirSize;
 
     public Opera(String title, int duration, Director director,
                  MusicalAutor musicalAutor, String librettoText, int choirSize) {
@@ -10,6 +10,13 @@ public class Opera extends MusicalShow {
     public int getChoirSize()
     {
         return choirSize;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", choirSize=" + choirSize +
+                '}';
     }
 
     public void setChoirSize(int choirSize) {

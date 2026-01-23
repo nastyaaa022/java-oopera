@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Show {
-    private String title;
-    private int duration;
-    private Director director;
-    private ArrayList<Actor> listOfActors; // список актеров
+    protected String title;
+    protected int duration;
+    protected Director director;
+    protected ArrayList<Actor> listOfActors; // список актеров
 
 
     public Show(String title, int duration, Director director/*, ArrayList<String> listOfActors*/) {
@@ -28,15 +28,48 @@ public class Show {
         }
     }
 
+    public void printDirector () {
+        System.out.println("Режисер: " + director);
+    }
+
+    public void printShow () {
+        System.out.println(this.toString());
+    }
+
     public void replaceActor(Actor newActor, String oldSurname) {
+        int actorNumber = 0;
+        for (Actor actor: listOfActors) {
+            if (actor.getSurname().equals(oldSurname)) {
+                actorNumber++;
+            }
+        }
+
+        if (actorNumber > 1) {
+            System.out.println("В списке обнаружено более одного актера с такой фамилией, " +
+                    "замена не будет произведена.");
+            return;
+        }
+
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor actor = listOfActors.get(i);
             if (actor.getSurname().equals(oldSurname)) {
                 listOfActors.set(i, newActor);
+                System.out.println("Замена Актера произведена успешно!");
                 return;
             }
         }
+
         System.out.println("Актёр с указанной фамилией не найден в списке.");
+    }
+
+    @Override
+    public String toString() {
+        return "Show{" +
+                "title='" + title + '\'' +
+                ", duration=" + duration +
+                ", director=" + director +
+                ", listOfActors=" + listOfActors +
+                '}';
     }
 
     public String getTitle() {

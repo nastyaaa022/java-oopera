@@ -1,6 +1,6 @@
 public class MusicalShow extends Show {
-    private MusicalAutor musicalAutor;
-    private String librettoText;
+    protected MusicalAutor musicalAutor;
+    protected String librettoText;
 
     public MusicalShow(String title, int duration, Director director, MusicalAutor musicalAutor, String librettoText) {
         super(title, duration, director);
@@ -26,5 +26,13 @@ public class MusicalShow extends Show {
 
     public void setLibrettoText(String librettoText) {
         this.librettoText = librettoText;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", librettoText='" + librettoText + '\'' +
+                ", musicalAutor=" + musicalAutor +
+                '}';
     }
 }
